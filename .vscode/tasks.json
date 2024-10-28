@@ -1,0 +1,28 @@
+// tasks.json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "watch",
+      "command": "dotnet",
+      "type": "process",
+      "linux": {
+        "options": {
+          "env": {
+            // The FileSystemWatcher used by default wasnt working for me on linux, so I switched to the polling watcher.
+            "DOTNET_USE_POLLING_FILE_WATCHER": "true"
+          }
+        }
+      },
+      "args": [
+        "watch",
+        "--no-hot-reload", // This is optional, it avoids to be prompted to restart the app when a file changes
+        "run",
+        "${workspaceFolder}/${workspaceFolder}.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

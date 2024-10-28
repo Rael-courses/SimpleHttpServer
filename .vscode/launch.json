@@ -1,0 +1,13 @@
+// launch.json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "dotnetwatchattach",
+      "request": "launch",
+      "name": ".NET Watch Attach",
+      "task": "watch", // Label of watch task in tasks.json
+      "program": "SimpleHttpServer.exe" // for windows Or "<startup-project-name>" for linux
+    }
+  ]
+}
