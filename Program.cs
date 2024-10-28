@@ -32,14 +32,7 @@ internal class Program
         {
           response.ContentType = "application/json";
           response.StatusCode = 200;
-          var content = new
-          {
-            path = request.RawUrl,
-            message = "Server is running"
-          };
-          var json = JsonSerializer.Serialize(content);
-
-          response.OutputStream.Write(Encoding.UTF8.GetBytes(json));
+          response.OutputStream.Write(Encoding.UTF8.GetBytes("OK"));
         }
         else if (request.RawUrl == "/api/welcome")
         {
